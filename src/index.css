@@ -1,13 +1,24 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-nunito text-text min-h-screen bg-gradient-to-br from-pink to-lavender;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .btn-cute {
+    @apply bg-mint px-5 py-2.5 rounded-full font-bold text-darkmint shadow-md transition-all duration-200 hover:scale-105 hover:-rotate-1 hover:shadow-lg;
+  }
+  .card-cute {
+    @apply bg-white/70 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-dashed border-pink my-4;
+  }
+  .input-cute {
+    @apply bg-[#FFFDF9] border-2 border-pink rounded-xl px-4 py-2 font-nunito outline-none transition-colors duration-300 focus:border-[#FF88A0];
+  }
+  .h-cute {
+    @apply text-darkpink font-bold drop-shadow-[2px_2px_0_rgba(255,255,255,0.7)];
+  }
 }
