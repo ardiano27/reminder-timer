@@ -18,6 +18,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev": "node scripts/dev.js",
     "start": "node scripts/dev.js",
     "start:client": "react-scripts start",
     "start:server": "npm --prefix server start",

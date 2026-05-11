@@ -1,7 +1,17 @@
 {
-  "reminders": [],
+  "reminders": [
+    {
+      "id": "1778424297222",
+      "date": "2026-05-10",
+      "time": "21:45",
+      "title": "kkk",
+      "note": "",
+      "done": true,
+      "createdAt": "2026-05-10T14:44:57.222Z"
+    }
+  ],
   "stats": {
-    "completedCount": 0,
+    "completedCount": 1,
     "streak": 0
   }
 }

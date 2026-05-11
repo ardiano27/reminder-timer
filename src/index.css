@@ -4,21 +4,34 @@
 
 @layer base {
   body {
-    @apply font-nunito text-text min-h-screen bg-gradient-to-br from-pink to-lavender;
+    @apply font-body text-genshindark min-h-screen bg-gradient-to-br from-[#1E2532] to-[#2B3544] bg-fixed;
   }
 }
 
 @layer components {
-  .btn-cute {
-    @apply bg-mint px-5 py-2.5 rounded-full font-bold text-darkmint shadow-md transition-all duration-200 hover:scale-105 hover:-rotate-1 hover:shadow-lg;
+  .btn-genshin {
+    @apply bg-genshinwhite border-[2px] border-genshingold text-genshindark font-body font-bold px-8 py-3 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-all duration-300 hover:bg-genshinlightgold hover:shadow-[0_0_15px_rgba(211,188,142,0.6)] active:scale-95 flex items-center justify-center gap-2;
   }
-  .card-cute {
-    @apply bg-white/70 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-dashed border-pink my-4;
+  .card-genshin {
+    @apply bg-genshinwhite/90 backdrop-blur-md rounded-xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-genshingold/50 my-4 relative overflow-hidden;
   }
-  .input-cute {
-    @apply bg-[#FFFDF9] border-2 border-pink rounded-xl px-4 py-2 font-nunito outline-none transition-colors duration-300 focus:border-[#FF88A0];
+  .input-genshin {
+    @apply bg-white/50 border-b-2 border-genshingold px-4 py-3 font-body outline-none transition-all duration-300 focus:bg-white focus:shadow-[0_4px_15px_rgba(211,188,142,0.2)] text-genshindark placeholder:text-genshindark/50;
   }
-  .h-cute {
-    @apply text-darkpink font-bold drop-shadow-[2px_2px_0_rgba(255,255,255,0.7)];
+  .h-genshin {
+    @apply font-genshin text-genshingold drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] tracking-wide;
+  }
+  
+  /* Genshin inner corner decoration */
+  .card-genshin::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 1px solid rgba(211,188,142,0.3);
+    border-radius: 8px;
+    pointer-events: none;
   }
 }

@@ -29,15 +29,23 @@ const CalendarView: React.FC<CalendarViewProps> = ({ reminders, onSelectDate, se
   }, {});
 
   return (
-    <div>
-      <div className="flex justify-between items-center mb-6 px-4">
-        <button onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))} className="p-3 bg-white hover:bg-pink rounded-full shadow-sm transition-colors text-xl">👈</button>
-        <h2 className="text-2xl font-bold text-darkpink">{format(currentMonth, 'MMMM yyyy')}</h2>
-        <button onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))} className="p-3 bg-white hover:bg-pink rounded-full shadow-sm transition-colors text-xl">👉</button>
+    <div className="relative animate-fade-in">
+      <div className="flex justify-between items-center mb-6 px-4 relative z-10">
+        <button onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))} className="p-2 text-genshinwhite hover:text-genshingold transition-colors">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <div className="text-center">
+          <h2 className="text-2xl sm:text-3xl font-genshin text-genshingold drop-shadow-md">{format(currentMonth, 'MMMM')}</h2>
+          <p className="text-genshinwhite/70 font-body text-sm tracking-[0.2em]">{format(currentMonth, 'yyyy')}</p>
+        </div>
+        <button onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))} className="p-2 text-genshinwhite hover:text-genshingold transition-colors">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+        </button>
       </div>
-      <div className="grid grid-cols-7 gap-2 md:gap-4 p-4 card-cute !bg-white/80">
-        {['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'].map(d => (
-          <div key={d} className="text-center font-bold text-darkpink pb-2 border-b-2 border-pink/30">{d}</div>
+      
+      <div className="grid grid-cols-7 gap-2 sm:gap-3 p-6 card-genshin relative z-10">
+        {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map(d => (
+          <div key={d} className="text-center font-bold text-genshindark/50 pb-2 border-b border-genshingold/30 font-body text-xs tracking-widest">{d}</div>
         ))}
         {days.map(day => {
           const dateStr = format(day, 'yyyy-MM-dd');
@@ -49,10 +57,15 @@ const CalendarView: React.FC<CalendarViewProps> = ({ reminders, onSelectDate, se
             <div
               key={dateStr}
               onClick={() => onSelectDate(dateStr)}
-              className={`relative p-2 md:p-3 text-center rounded-xl cursor-pointer transition-all hover:scale-105 font-bold ${isSelected ? 'bg-pink shadow-md text-darkpink' : hasReminder ? 'bg-mint text-darkmint' : 'hover:bg-whitecream text-text/80'} ${isToday ? 'border-4 border-lavender' : ''}`}
+              className={`relative p-3 sm:p-4 text-center cursor-pointer font-body text-lg transition-all duration-300 rounded-lg flex items-center justify-center
+                ${isSelected ? 'bg-genshingold text-white shadow-[0_4px_10px_rgba(211,188,142,0.5)] scale-110 z-10' : 
+                  hasReminder ? 'bg-genshinlightgold/50 text-genshindark border border-genshingold/30 hover:bg-genshinlightgold' : 
+                  'text-genshindark/80 hover:bg-black/5'}
+                ${isToday && !isSelected ? 'ring-2 ring-genshingold ring-offset-2 ring-offset-genshinwhite' : ''}
+              `}
             >
-              {format(day, 'd')}
-              {hasReminder && <span className="absolute bottom-1 right-1 text-xs sm:text-sm">🐾</span>}
+              <span className={isSelected ? 'font-bold' : ''}>{format(day, 'd')}</span>
+              {hasReminder && <span className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 text-[10px] sm:text-xs text-genshingold drop-shadow-sm">✦</span>}
             </div>
           );
         })}

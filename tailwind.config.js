@@ -6,41 +6,33 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        pink: '#FFD1DC',
-        mint: '#C1F0DB',
-        lavender: '#E6D7FF',
-        yellow: '#FFF3B0',
-        whitecream: '#FFF9FB',
-        text: '#5A4A4F',
-        darkpink: '#A85C7A',
-        darkmint: '#3A5A4A',
+        genshingold: '#D3BC8E',
+        genshinlightgold: '#F4E8C1',
+        genshindark: '#3B4255',
+        genshinbg: '#ECE5D3',
+        genshinwhite: '#F9F6F0',
+        anemo: '#74C2A8',
+        geo: '#E3B342',
       },
       fontFamily: {
-        nunito: ['Nunito', 'sans-serif'],
+        genshin: ['Marcellus', 'serif'],
+        body: ['Outfit', 'sans-serif'],
       },
       animation: {
-        wiggle: 'wiggle 2.5s infinite',
         float: 'float 3s ease-in-out infinite',
-        bounce: 'bounce 2s infinite',
-        peek: 'peek 4s ease-in-out infinite',
+        glow: 'glow 2s ease-in-out infinite alternate',
       },
       keyframes: {
-        wiggle: {
-          '0%, 100%': { transform: 'rotate(0deg)' },
-          '25%': { transform: 'rotate(-5deg)' },
-          '75%': { transform: 'rotate(5deg)' },
-        },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
         },
-        peek: {
-          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-          '50%': { transform: 'translateY(-10px) rotate(5deg)' },
+        glow: {
+          '0%': { boxShadow: '0 0 5px #D3BC8E' },
+          '100%': { boxShadow: '0 0 20px #D3BC8E, 0 0 10px #F4E8C1' },
         }
       }
     },
   },
   plugins: [],
 }
-
